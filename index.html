@@ -226,6 +226,87 @@ dialog::backdrop{background:rgba(6,12,24,.7)}
 .fab svg{width:22px;height:22px}
 @media (max-width:520px){.fab span{display:none}.fab{padding:14px}}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(76px + env(safe-area-inset-bottom,0px));background:var(--band);color:var(--band-ink);padding:10px 16px;border-radius:8px;z-index:70;font-weight:600;box-shadow:var(--shadow);max-width:calc(100vw - 32px)}
+
+/* Téléphone */
+.sm{display:none}
+.more{display:flex;justify-content:center;margin-top:20px}
+.more .btn{background:var(--surface);min-width:min(100%,320px)}
+body{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.chips{scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.card{content-visibility:auto;contain-intrinsic-size:auto 320px}
+.btn,.chip,.quick button{touch-action:manipulation}
+@media (max-width:640px){
+  body{font-size:15px}
+  .sm{display:inline}.lg{display:none}
+  svg.sm{display:block;width:20px;height:20px}
+  section{padding-block:32px}
+  h2{font-size:1.75rem}
+  .sec-head{margin-bottom:16px;gap:6px}
+  .sec-head p{font-size:.93rem}
+  .eyebrow{font-size:.78rem;letter-spacing:.12em}
+  .topbar{font-size:.8rem}.topbar .addr{display:none}.topbar .wrap{justify-content:center;padding-block:5px}
+  .brand img{width:38px;height:38px}.brand span{font-size:1.4rem}.brand small{font-size:.6rem}
+  header.site .wrap{padding-block:7px}
+  .quote-btn{padding:7px 10px;font-size:.9rem}
+  .hero .wrap{padding-block:22px 28px;gap:0}
+  .hero h1{font-size:2.35rem}
+  .hero p.lead{font-size:.98rem;margin-top:10px}
+  .searchbox{margin-top:18px}
+  .search-field{padding:3px 3px 3px 12px}
+  .search-field input{font-size:16px;padding:10px 0}
+  .search-field .btn{padding:10px 12px}
+  .quick{margin-top:12px;gap:6px;font-size:.82rem}
+  .quick span{width:100%}
+  .quick button{font-size:.84rem;padding:4px 10px}
+  .hero-cta{margin-top:16px;display:grid;grid-template-columns:1fr;gap:8px}
+  .hero-cta .btn{padding:11px 14px;font-size:.95rem}
+  #services{padding-block:20px}
+  .services{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .services article{padding:14px 12px;gap:6px}
+  .services article p{display:none}
+  .services svg{width:26px;height:26px}
+  .services h3{font-size:1.1rem}
+  .services a{font-size:.85rem}
+  .toolbar{position:static;padding-block:4px 6px;gap:8px}
+  .tool-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .tool-row .field{grid-column:1/-1}
+  .tool-row input{font-size:16px;padding:10px 0}
+  .tool-row select{font-size:.88rem;padding:8px 10px;width:100%}
+  .chips{margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
+  .chip{font-size:.84rem;padding:5px 11px;scroll-snap-align:start}
+  .status{font-size:.86rem;margin:4px 0 10px}
+  .grid{gap:10px}
+  .card .body{padding:8px 9px 9px;gap:3px}
+  .card .cat{font-size:.64rem;letter-spacing:.07em}
+  .card h3{font-size:.9rem;line-height:1.22}
+  .ref{font-size:.72rem}
+  .card .acts{gap:5px;padding-top:6px}
+  .card .acts .btn{font-size:.82rem;padding:8px 6px;gap:5px}
+  .card .acts .btn svg{width:15px;height:15px}
+  .card .acts .add{width:36px;font-size:1.05rem}
+  .card .pic .count{font-size:.68rem}
+  .bays{gap:12px}.bay{padding:16px;gap:8px}.bay h3{font-size:1.35rem}.bay ul{font-size:.92rem}
+  .why{gap:24px}.why ul{gap:10px;margin-top:12px}.why li{font-size:.93rem}
+  .dg{padding:18px}.dg blockquote{font-size:1rem}
+  .brands span{font-size:.8rem;padding:3px 8px}
+  .tel{font-size:1.6rem}
+  .info dl{gap:8px 12px;font-size:.93rem}
+  form.req{padding:16px;gap:10px}
+  form.req input,form.req select,form.req textarea{font-size:16px;padding:9px 11px}
+  footer{font-size:.82rem}footer .wrap{padding-block:18px 84px;flex-direction:column;align-items:flex-start;gap:6px}
+  .fab{padding:12px}.fab svg{width:24px;height:24px}
+  dialog{width:100vw;max-width:100vw;max-height:92vh;margin:auto 0 0;border-radius:16px 16px 0 0}
+  .prod .gal .big{aspect-ratio:4/3}
+  .prod .txt{padding:16px 16px calc(18px + env(safe-area-inset-bottom,0px));gap:9px}
+  .prod .txt h3{font-size:1.45rem}
+  .prod .txt p{font-size:.93rem}
+  .thumbs button{width:50px;height:50px}
+  .qd{padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px))}
+  #dQuote{width:100vw}
+  .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px));font-size:.9rem}
+}
+@media (max-width:360px){.hero h1{font-size:2.05rem}.card .acts .btn svg{display:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -244,7 +325,7 @@ dialog::backdrop{background:rgba(6,12,24,.7)}
 </svg>
 
 <div class="topbar"><div class="wrap">
-  <span>Avenue de l'Université, Dakar, Sénégal</span>
+  <span class="addr">Avenue de l'Université, Dakar, Sénégal</span>
   <span>Téléphone et WhatsApp : <b class="sel">+221 78 173 90 92</b></span>
 </div></div>
 
@@ -259,14 +340,14 @@ dialog::backdrop{background:rgba(6,12,24,.7)}
 <main>
 <section class="band hero" id="accueil" style="padding-block:0"><div class="wrap">
   <div>
-    <p class="eyebrow">Pièces détachées · Garage · Diagnostic · Dépannage</p>
+    <p class="eyebrow">Pièces · Garage · Diagnostic · Dépannage</p>
     <h1>La bonne pièce, <em>du premier coup.</em></h1>
     <p class="lead">Pièces pour voitures, 4x4, pick-up et motos, avec un atelier pour l'entretien, le diagnostic et le dépannage. Tout au même endroit, avenue de l'Université à Dakar.</p>
     <div class="searchbox">
       <label class="search-field" for="heroQ">
         <svg><use href="#i-search"/></svg>
         <input id="heroQ" type="search" autocomplete="off" placeholder="Cherchez une pièce : amortisseur, phare, 42450-60070…" aria-label="Rechercher une pièce">
-        <a class="btn btn-accent" href="#catalogue">Chercher</a>
+        <a class="btn btn-accent" href="#catalogue" aria-label="Chercher"><span class="lg">Chercher</span><svg class="sm"><use href="#i-search"/></svg></a>
       </label>
       <div class="suggest" id="suggest" hidden></div>
     </div>
@@ -307,6 +388,7 @@ dialog::backdrop{background:rgba(6,12,24,.7)}
   </div>
   <p class="status" id="status" aria-live="polite"></p>
   <div class="grid" id="grid"></div>
+  <div class="more" id="more" hidden><button class="btn btn-ghost" type="button" id="moreBtn"></button></div>
 </div></section>
 
 <section class="band" id="atelier"><div class="wrap">
@@ -566,22 +648,24 @@ function current(){var r=search(state.q);var list=r?r.list:P.slice();
   if(state.sort==='az'||!r&&state.sort==='az')list=list.slice().sort(function(a,b){return a._sort<b._sort?-1:1});
   return{list:list,counts:counts,total:total,r:r}}
 
-function render(){var c=current();
+var PAGE=innerWidth<640?10:20;state.limit=PAGE;
+function render(keep){var c=current();if(!keep)state.limit=PAGE;var all=c.list;c.list=all.slice(0,state.limit);var rest=all.length-c.list.length;
+  $('more').hidden=rest<=0;$('moreBtn').textContent='Afficher '+Math.min(rest,PAGE)+' pièces de plus ('+rest+' restantes)';
   chips.innerHTML='<button class="chip" type="button" data-cat="" aria-pressed="'+(!state.cat)+'">Tout<i>'+c.total+'</i></button>'+Object.keys(CATS).map(function(k){var n=c.counts[k]||0;return n||state.cat===k?'<button class="chip" type="button" data-cat="'+k+'" aria-pressed="'+(state.cat===k)+'">'+CATS[k]+'<i>'+n+'</i></button>':''}).join('');
   $('clearQ').hidden=!state.q;
-  var msg=c.list.length+' pièce'+(c.list.length>1?'s':'');
+  var msg=all.length+' pièce'+(all.length>1?'s':'');
   if(state.q)msg+=' pour « '+esc(state.q)+' »';
   if(state.cat)msg+=' dans '+CATS[state.cat];
-  if(c.r&&c.r.corrected&&c.list.length)msg+='. Résultats proches de <b>'+esc(c.r.corrected)+'</b>';
+  if(c.r&&c.r.corrected&&all.length)msg+='. Résultats proches de <b>'+esc(c.r.corrected)+'</b>';
   if(state.q||state.cat||state.veh)msg+=' · <button type="button" id="reset">Tout réafficher</button>';
   statusEl.innerHTML=msg;
-  if(!c.list.length){
+  if(!all.length){
     var t=WA+encodeURIComponent('Bonjour BABS, je cherche cette pièce : '+(state.q||'')+'\nMon véhicule : ');
     grid.innerHTML='<div class="empty" style="grid-column:1/-1"><h3>Pas de résultat'+(state.q?' pour « '+esc(state.q)+' »':'')+'</h3><p>Tout le stock n\'est pas encore en ligne. Envoyez votre recherche au magasin, avec le modèle du véhicule : on vous répond sur la disponibilité.</p><a class="btn btn-wa" target="_blank" rel="noopener" href="'+t+'"><svg><use href="#i-wa"/></svg>Demander cette pièce</a></div>';return}
   grid.innerHTML=c.list.map(function(p){var inQ=quote.indexOf(p.n)>=0;
-    return '<article class="card"><button class="pic" type="button" data-open="'+p.id+'" aria-label="Voir '+esc(p.n)+'">'+(p.i.length?'<img loading="lazy" src="'+img(p.i[0])+'" alt="'+esc(p.n)+'">'+(p.i.length>1?'<span class="count">'+p.i.length+' photos</span>':''):PH)+'</button>'+
+    return '<article class="card"><button class="pic" type="button" data-open="'+p.id+'" aria-label="Voir '+esc(p.n)+'">'+(p.i.length?'<img loading="lazy" decoding="async" src="'+img(p.i[0])+'" alt="'+esc(p.n)+'">'+(p.i.length>1?'<span class="count">'+p.i.length+' photos</span>':''):PH)+'</button>'+
     '<div class="body"><span class="cat">'+CATS[p.c]+'</span><h3>'+hl(p.n,c.r&&c.r.toks)+'</h3>'+(p.r.length?'<span class="ref">Réf. '+p.r.join(' · ')+'</span>':(p.i.length?'':'<span class="ref">Sur demande</span>'))+
-    '<div class="acts"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+waProduct(p)+'">Demander le prix</a><button class="btn btn-ghost add" type="button" data-add="'+p.id+'" aria-pressed="'+inQ+'" aria-label="'+(inQ?'Retirer du devis':'Ajouter au devis')+'" title="'+(inQ?'Retirer du devis':'Ajouter au devis')+'">'+(inQ?'✓':'+')+'</button></div></div></article>'}).join('')}
+    '<div class="acts"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+waProduct(p)+'"><svg><use href="#i-wa"/></svg><span class="lg">Demander le prix</span><span class="sm">Prix</span></a><button class="btn btn-ghost add" type="button" data-add="'+p.id+'" aria-pressed="'+inQ+'" aria-label="'+(inQ?'Retirer du devis':'Ajouter au devis')+'" title="'+(inQ?'Retirer du devis':'Ajouter au devis')+'">'+(inQ?'✓':'+')+'</button></div></div></article>'}).join('')}
 
 function setQ(v,from){state.q=v;if(from!==qIn)qIn.value=v;if(from!==heroQ)heroQ.value=v;if(state.cat&&v){var c=current();if(!c.list.length)state.cat=''}render()}
 function suggest(){var v=heroQ.value;var r=search(v);if(!r||!v.trim()){sug.hidden=true;return}
@@ -600,6 +684,7 @@ sug.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)
 $('clearQ').addEventListener('click',function(){setQ('');qIn.focus()});
 $('veh').addEventListener('change',function(e){state.veh=e.target.value;state.cat='';render()});
 $('sort').addEventListener('change',function(e){state.sort=e.target.value;render()});
+$('moreBtn').addEventListener('click',function(){state.limit+=PAGE;render(true)});
 chips.addEventListener('click',function(e){var b=e.target.closest('[data-cat]');if(!b)return;state.cat=b.getAttribute('data-cat');render()});
 statusEl.addEventListener('click',function(e){if(e.target.id==='reset'){state.cat='';state.veh='';$('veh').value='';setQ('')}});
 ['Plaquettes','Amortisseur','Filtre à huile','Phare','Embrayage','Radiateur','Moto'].forEach(function(t){var b=document.createElement('button');b.type='button';b.textContent=t;b.addEventListener('click',function(){state.cat='';setQ(t);goCat()});$('quick').appendChild(b)});
