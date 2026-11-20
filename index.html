@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="img/logo.png">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>BABS Services Automobiles</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="BABS — pièces détachées auto et moto, entretien, diagnostic et dépannage. Avenue de l'Université, Dakar. Tél. +221 78 173 90 92.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap">
+<style>
+/* Layout: navy counter-top band (header + hero with the search as the main tool), then a parts-counter catalogue grid, service bays, contact desk. */
+:root{
+  --bg:#f3f5f9; --surface:#ffffff; --surface-2:#e9edf4; --ink:#0f1f38; --muted:#56657d; --line:#d7deea;
+  --band:#12264a; --band-2:#0c1b37; --band-ink:#ffffff; --band-muted:#b9c6dc; --band-line:#2a4072;
+  --accent:#f07a1a; --accent-ink:#1a1206; --accent-soft:#fdebd9; --accent-text:#b4530a;
+  --wa:#128c4b; --wa-ink:#ffffff; --shadow:0 8px 24px rgba(15,31,56,.10);
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif; --body:"Barlow","Segoe UI",Arial,sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0a1220; --surface:#121d33; --surface-2:#1a2844; --ink:#e9eef8; --muted:#9db0cc; --line:#263657;
+  --band:#0e1c38; --band-2:#081327; --band-ink:#ffffff; --band-muted:#aebcd6; --band-line:#263c6c;
+  --accent:#f58a2e; --accent-ink:#1a1206; --accent-soft:#3a2510; --accent-text:#ffab63;
+  --wa:#1aa35a; --wa-ink:#ffffff; --shadow:0 8px 24px rgba(0,0,0,.35); color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0a1220; --surface:#121d33; --surface-2:#1a2844; --ink:#e9eef8; --muted:#9db0cc; --line:#263657;
+  --band:#0e1c38; --band-2:#081327; --band-ink:#ffffff; --band-muted:#aebcd6; --band-line:#263c6c;
+  --accent:#f58a2e; --accent-ink:#1a1206; --accent-soft:#3a2510; --accent-text:#ffab63;
+  --wa:#1aa35a; --wa-ink:#ffffff; --shadow:0 8px 24px rgba(0,0,0,.35); color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--band-2)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;text-wrap:balance;letter-spacing:.01em}
+h2{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:800;text-transform:uppercase}
+h3{font-size:1.35rem;font-weight:700}
+p{margin:0}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.eyebrow{font-family:var(--display);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.9rem;color:var(--accent-text)}
+.band .eyebrow{color:var(--accent)}
+.sel{user-select:all}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:8px;padding:12px 18px;font-weight:700;text-decoration:none;cursor:pointer;line-height:1.1;text-align:center}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-accent{background:var(--accent);color:var(--accent-ink)}
+.btn-wa{background:var(--wa);color:var(--wa-ink)}
+.btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.band .btn-ghost{border-color:var(--band-line);color:var(--band-ink)}
+.btn:hover{filter:brightness(1.07)}
+.btn-sm{padding:8px 12px;font-size:.9rem}
+
+/* Top bar + header */
+.band{background:var(--band);color:var(--band-ink)}
+.topbar{background:var(--band-2);color:var(--band-muted);font-size:.88rem}
+.topbar .wrap{display:flex;flex-wrap:wrap;gap:4px 20px;justify-content:space-between;padding-block:7px}
+.topbar b{color:var(--band-ink);font-weight:600}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--band);color:var(--band-ink);border-bottom:1px solid var(--band-line)}
+header.site .wrap{display:flex;align-items:center;gap:14px;padding-block:8px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;min-width:0}
+.brand img{width:46px;height:46px;border-radius:50%;flex:none}
+.brand span{font-family:var(--display);font-weight:800;font-size:1.7rem;letter-spacing:.04em;line-height:1}
+.brand small{display:block;font-family:var(--body);font-weight:500;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--band-muted);margin-top:2px}
+nav.main{display:flex;gap:4px}
+nav.main a{text-decoration:none;padding:8px 10px;border-radius:6px;font-weight:600;font-size:.95rem;color:var(--band-muted)}
+nav.main a:hover{color:var(--band-ink);background:var(--band-line)}
+.quote-btn{position:relative;background:transparent;border:1.5px solid var(--band-line);color:var(--band-ink);border-radius:8px;padding:8px 12px;font-weight:700;cursor:pointer;display:inline-flex;gap:8px;align-items:center;white-space:nowrap}
+.quote-btn i{font-style:normal;background:var(--accent);color:var(--accent-ink);border-radius:20px;min-width:22px;height:22px;display:inline-grid;place-items:center;font-size:.8rem;padding:0 6px;font-variant-numeric:tabular-nums}
+@media (max-width:820px){nav.main{display:none}}
+
+/* Hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;align-items:center;padding-block:44px 52px}
+.hero h1{font-size:clamp(2.5rem,6.4vw,4.4rem);font-weight:800;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{color:var(--band-muted);font-size:1.12rem;max-width:56ch;margin-top:14px}
+.hero-logo{justify-self:center;width:min(100%,340px);height:auto;aspect-ratio:1;border-radius:50%;box-shadow:0 0 0 10px rgba(255,255,255,.05),0 24px 60px rgba(0,0,0,.45)}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr;padding-block:28px 36px}.hero-logo{display:none}}
+.searchbox{position:relative;margin-top:24px;max-width:640px}
+.search-field{display:flex;align-items:center;background:#fff;color:#0f1f38;border-radius:10px;padding:4px 4px 4px 14px;gap:8px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.search-field svg{width:22px;height:22px;flex:none;color:#56657d}
+.search-field input{flex:1;min-width:0;border:0;background:transparent;padding:12px 0;font-size:1.05rem;outline:none;color:#0f1f38}
+.search-field input::placeholder{color:#7a889d}
+.suggest{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);z-index:20;overflow:hidden}
+.suggest button{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);padding:8px 12px;cursor:pointer}
+.suggest button:last-child{border-bottom:0}
+.suggest button:hover,.suggest button:focus-visible{background:var(--surface-2)}
+.suggest img,.suggest .ph{width:44px;height:44px;border-radius:6px;object-fit:cover;flex:none}
+.suggest b{display:block;font-weight:600;line-height:1.2}
+.suggest small{color:var(--muted)}
+.suggest .all{justify-content:center;font-weight:700;color:var(--accent-text)}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;align-items:center;color:var(--band-muted);font-size:.9rem}
+.quick button{background:transparent;border:1px solid var(--band-line);color:var(--band-ink);border-radius:20px;padding:5px 12px;cursor:pointer;font-size:.9rem}
+.quick button:hover{border-color:var(--accent);color:var(--accent)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+
+/* Sections */
+section{padding-block:56px}
+.sec-head{display:flex;flex-direction:column;gap:8px;margin-bottom:26px;max-width:70ch}
+.sec-head p{color:var(--muted)}
+.band .sec-head p{color:var(--band-muted)}
+
+.services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.services article{background:var(--surface);padding:22px 20px;display:flex;flex-direction:column;gap:10px}
+.services svg{width:34px;height:34px;color:var(--accent-text)}
+.services p{color:var(--muted);font-size:.97rem}
+.services a{margin-top:auto;font-weight:700;color:var(--accent-text);text-decoration:none}
+.services a:hover{text-decoration:underline}
+@media (max-width:900px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.services{grid-template-columns:1fr}}
+
+/* Catalogue */
+#catalogue{background:var(--surface-2)}
+.toolbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 63px);z-index:30;background:var(--surface-2);padding-block:10px;display:flex;flex-direction:column;gap:10px}
+.tool-row{display:flex;flex-wrap:wrap;gap:8px}
+.tool-row .field{flex:1 1 260px;min-width:0;display:flex;align-items:center;gap:8px;background:var(--surface);border:1.5px solid var(--line);border-radius:8px;padding:0 12px}
+.tool-row .field:focus-within{border-color:var(--accent)}
+.tool-row .field svg{width:20px;height:20px;color:var(--muted);flex:none}
+.tool-row input{flex:1;min-width:0;border:0;background:transparent;padding:11px 0;outline:none}
+.tool-row .clear{border:0;background:transparent;cursor:pointer;color:var(--muted);font-size:1.3rem;line-height:1;padding:4px}
+.tool-row select{background:var(--surface);border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;min-width:0;max-width:100%}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.chip{flex:none;background:var(--surface);border:1.5px solid var(--line);border-radius:20px;padding:6px 13px;cursor:pointer;font-weight:600;font-size:.92rem;white-space:nowrap}
+.chip i{font-style:normal;color:var(--muted);font-weight:500;margin-left:5px;font-variant-numeric:tabular-nums}
+.chip[aria-pressed="true"]{background:var(--band);border-color:var(--band);color:var(--band-ink)}
+.chip[aria-pressed="true"] i{color:var(--band-muted)}
+.status{color:var(--muted);font-size:.95rem;margin:6px 0 14px;min-height:1.5em}
+.status button{background:none;border:0;padding:0;color:var(--accent-text);font-weight:700;cursor:pointer;text-decoration:underline}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:14px}
+@media (max-width:520px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card .acts .btn{font-size:.76rem}.card .acts .add{width:32px;font-size:1rem}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card .pic{position:relative;aspect-ratio:4/3;background:var(--surface-2);border:0;padding:0;cursor:pointer;display:block;width:100%}
+.card .pic{overflow:hidden}
+.card .pic img,.card .pic .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.card .pic .ph{display:grid}
+.card .pic .count{position:absolute;right:6px;bottom:6px;background:rgba(10,18,32,.78);color:#fff;font-size:.75rem;border-radius:4px;padding:1px 6px}
+.ph{display:grid;place-items:center;width:100%;height:100%;background:var(--surface-2);color:var(--muted);font-size:.78rem;text-align:center}
+.ph svg{width:40%;max-width:54px;opacity:.55}
+.card .body{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .cat{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-text);font-weight:700}
+.card h3{font-family:var(--body);font-size:1rem;font-weight:600;line-height:1.25;letter-spacing:0}
+.card h3 mark{background:var(--accent-soft);color:inherit;border-radius:2px;padding:0 1px}
+.ref{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.card .acts{display:flex;gap:6px;margin-top:auto;padding-top:6px}
+.card .acts .btn{flex:1;padding:8px 6px;font-size:.84rem}
+.card .acts .add{flex:none;width:38px;padding:0;font-size:1.2rem}
+.card .acts .add[aria-pressed="true"]{background:var(--band);color:var(--band-ink);border-color:var(--band)}
+.empty{background:var(--surface);border:1.5px dashed var(--line);border-radius:var(--r);padding:28px 20px;text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center}
+.empty p{color:var(--muted);max-width:52ch}
+
+/* Atelier */
+.bays{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:900px){.bays{grid-template-columns:1fr}}
+.bay{border:1px solid var(--band-line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:12px;background:var(--band-2)}
+.bay ul{margin:0;padding-left:18px;color:var(--band-muted);display:flex;flex-direction:column;gap:4px}
+.bay .btn{margin-top:auto;align-self:flex-start}
+.bay h3{font-size:1.6rem;text-transform:uppercase}
+
+.why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start}
+@media (max-width:820px){.why{grid-template-columns:1fr}}
+.why ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+.why li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px}
+.why li svg{width:24px;height:24px;color:var(--accent-text);margin-top:2px}
+.why li b{display:block}
+.why li span{color:var(--muted)}
+.dg{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:12px}
+.dg blockquote{margin:0;font-size:1.15rem;line-height:1.5}
+.dg .who{display:flex;gap:12px;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+.dg .who img{width:48px;height:48px;border-radius:50%}
+.dg .who small{color:var(--muted);display:block}
+.brands{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.brands span{border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-weight:600;font-size:.9rem;color:var(--muted);background:var(--surface)}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:28px}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+.info{display:flex;flex-direction:column;gap:16px}
+.info dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 16px}
+.info dt{color:var(--muted);font-size:.9rem;padding-top:2px}
+.info dd{margin:0;font-weight:600}
+.tel{font-family:var(--display);font-size:2rem;font-weight:800;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.copy{background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:3px 9px;font-size:.82rem;cursor:pointer;margin-left:8px;vertical-align:middle;font-family:var(--body);font-weight:600;letter-spacing:0}
+form.req{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+form.req label{display:flex;flex-direction:column;gap:5px;font-weight:600;font-size:.92rem;min-width:0}
+form.req .full{grid-column:1/-1}
+form.req input,form.req select,form.req textarea{background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;font-weight:400;width:100%}
+form.req textarea{min-height:96px;resize:vertical}
+form.req .hint{color:var(--muted);font-size:.86rem;font-weight:400}
+@media (max-width:520px){form.req{grid-template-columns:1fr}}
+
+footer{background:var(--band-2);color:var(--band-muted);font-size:.92rem}
+footer .wrap{padding-block:26px;display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center}
+footer b{color:var(--band-ink)}
+
+/* Dialogs */
+dialog{border:0;padding:0;background:var(--surface);color:var(--ink);border-radius:14px;width:min(920px,calc(100vw - 24px));max-height:calc(100vh - 24px);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+dialog::backdrop{background:rgba(6,12,24,.7)}
+.dlg-x{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;border:0;background:var(--surface-2);color:var(--ink);font-size:1.3rem;cursor:pointer;z-index:2}
+.prod{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+@media (max-width:720px){.prod{grid-template-columns:1fr}}
+.prod .gal{background:var(--surface-2);display:flex;flex-direction:column;min-width:0}
+.prod .gal .big{aspect-ratio:1;width:100%;max-width:100%}
+.prod .gal .big img{width:100%;height:100%;object-fit:contain;display:block}
+.thumbs{display:flex;gap:6px;padding:8px;overflow-x:auto}
+.thumbs button{flex:none;width:58px;height:58px;padding:0;border:2px solid transparent;border-radius:6px;overflow:hidden;cursor:pointer;background:none}
+.thumbs button[aria-current="true"]{border-color:var(--accent)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.prod .txt{padding:26px 22px 22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.prod .txt h3{font-size:1.9rem;text-transform:uppercase;padding-right:36px}
+.prod .txt p{color:var(--muted)}
+.prod .txt .btn{width:100%}
+.note{font-size:.86rem;color:var(--muted);border-left:3px solid var(--accent);padding-left:10px}
+.qd{padding:24px 22px;display:flex;flex-direction:column;gap:14px}
+.qd ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;max-height:42vh;overflow:auto}
+.qd li{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:6px 8px}
+.qd li img,.qd li .ph{width:46px;height:46px;border-radius:6px;object-fit:cover;flex:none}
+.qd li b{flex:1;min-width:0;font-weight:600;line-height:1.2}
+.qd li button{border:0;background:none;color:var(--muted);cursor:pointer;font-size:1.2rem;padding:4px 8px}
+#dQuote{width:min(520px,calc(100vw - 24px))}
+
+.fab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;background:var(--wa);color:var(--wa-ink);border-radius:30px;padding:12px 16px;font-weight:700;text-decoration:none;display:inline-flex;gap:8px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.fab svg{width:22px;height:22px}
+@media (max-width:520px){.fab span{display:none}.fab{padding:14px}}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(76px + env(safe-area-inset-bottom,0px));background:var(--band);color:var(--band-ink);padding:10px 16px;border-radius:8px;z-index:70;font-weight:600;box-shadow:var(--shadow);max-width:calc(100vw - 32px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 0 1 12 3.800zm-3.300 3.900c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.300s1 2.700 1.100 2.900c.2.2 2 3.100 4.900 4.300 2.400.9 2.900.8 3.400.7.500 0 1.700-.7 1.900-1.300.2-.700.2-1.200.2-1.300-.1-.2-.3-.2-.6-.4l-1.900-.9c-.3-.1-.5-.1-.7.2l-.9 1.100c-.2.2-.3.2-.6.1-1.600-.8-2.700-1.500-3.700-3.300-.2-.300 0-.500.1-.600l.5-.6.300-.5c.1-.2 0-.4 0-.5l-.9-2.100c-.2-.500-.4-.5-.600-.5z"/></symbol>
+    <symbol id="i-parts" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><circle cx="12" cy="12" r="3.200"/><path d="M12 2.500l1.200 2.700 2.800-.9.700 2.900 2.900.6-.900 2.800 2.700 1.400-2.200 2 1.300 2.700-2.900.700-.3 3-2.800-.900-1.700 2.400-2.100-2.100-2.600 1.400-.9-2.800-3 .1.600-2.900-2.600-1.500 2-2.200-1.500-2.600 2.800-1 .1-3 2.900.6z"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.800" stroke-linecap="round" stroke-linejoin="round"><path d="M14.500 6.500a4.500 4.500 0 0 0-5.900 5.500L3 17.600 6.400 21l5.600-5.600a4.500 4.500 0 0 0 5.500-5.900l-2.800 2.800-2.500-.5-.5-2.500z"/></symbol>
+    <symbol id="i-diag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.800" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M6 11h3l1.500-3 2.500 6 1.500-3H18M9 21h6"/></symbol>
+    <symbol id="i-tow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.800" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16V9h7l3 4h8a2 2 0 0 1 2 2v1h-2M2 16h2m5 0h7"/><circle cx="6.500" cy="16.500" r="2"/><circle cx="18" cy="16.500" r="2"/><path d="M9 9l8-5v4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.500l5 5L20 6.500"/></symbol>
+  </defs>
+</svg>
+
+<div class="topbar"><div class="wrap">
+  <span>Avenue de l'Université, Dakar, Sénégal</span>
+  <span>Téléphone et WhatsApp : <b class="sel">+221 78 173 90 92</b></span>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="#accueil"><img src="img/logo.png" alt="Logo BABS" width="46" height="46"><span>BABS<small>Services automobiles</small></span></a>
+  <nav class="main" aria-label="Navigation principale">
+    <a href="#catalogue">Pièces</a><a href="#atelier">Atelier</a><a href="#apropos">À propos</a><a href="#contact">Contact</a>
+  </nav>
+  <button class="quote-btn" id="openQuote" type="button">Mon devis <i id="qCount">0</i></button>
+</div></header>
+
+<main>
+<section class="band hero" id="accueil" style="padding-block:0"><div class="wrap">
+  <div>
+    <p class="eyebrow">Pièces détachées · Garage · Diagnostic · Dépannage</p>
+    <h1>La bonne pièce, <em>du premier coup.</em></h1>
+    <p class="lead">Pièces pour voitures, 4x4, pick-up et motos, avec un atelier pour l'entretien, le diagnostic et le dépannage. Tout au même endroit, avenue de l'Université à Dakar.</p>
+    <div class="searchbox">
+      <label class="search-field" for="heroQ">
+        <svg><use href="#i-search"/></svg>
+        <input id="heroQ" type="search" autocomplete="off" placeholder="Cherchez une pièce : amortisseur, phare, 42450-60070…" aria-label="Rechercher une pièce">
+        <a class="btn btn-accent" href="#catalogue">Chercher</a>
+      </label>
+      <div class="suggest" id="suggest" hidden></div>
+    </div>
+    <div class="quick" id="quick"><span>Souvent demandé :</span></div>
+    <div class="hero-cta">
+      <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/221781739092?text=Bonjour%20BABS%2C%20je%20cherche%20une%20pi%C3%A8ce."><svg><use href="#i-wa"/></svg>Écrire sur WhatsApp</a>
+      <a class="btn btn-ghost" href="#atelier">Prendre rendez-vous à l'atelier</a>
+    </div>
+  </div>
+  <img class="hero-logo" src="img/logo.png" alt="BABS, services automobiles tout-en-un : pièces détachées, garage, diagnostic, dépannage" width="340" height="340">
+</div></section>
+
+<section id="services"><div class="wrap">
+  <div class="services">
+    <article><svg><use href="#i-parts"/></svg><h3>Pièces détachées</h3><p>Moteur, freinage, suspension, carrosserie, éclairage, filtres et huiles. Voiture, 4x4 et moto.</p><a href="#catalogue">Voir le catalogue</a></article>
+    <article><svg><use href="#i-wrench"/></svg><h3>Entretien</h3><p>Vidange, freins, embrayage, distribution, suspension, climatisation. Pièces fournies et posées.</p><a href="#atelier">Voir l'atelier</a></article>
+    <article><svg><use href="#i-diag"/></svg><h3>Diagnostic</h3><p>Lecture des codes défaut à la valise et recherche de panne avant toute réparation.</p><a href="#atelier">Demander un diagnostic</a></article>
+    <article><svg><use href="#i-tow"/></svg><h3>Dépannage</h3><p>Véhicule immobilisé ? Appelez, on vous dit tout de suite comment on peut intervenir.</p><a href="#contact">Appeler le garage</a></article>
+  </div>
+</div></section>
+
+<section id="catalogue"><div class="wrap">
+  <div class="sec-head">
+    <p class="eyebrow">Catalogue</p>
+    <h2>Trouvez votre pièce</h2>
+    <p>Tapez un nom, une référence constructeur ou même un mot approximatif : la recherche comprend les fautes de frappe et les synonymes. Les prix se demandent par WhatsApp, avec la photo de la pièce.</p>
+  </div>
+  <div class="toolbar">
+    <div class="tool-row">
+      <label class="field" for="q"><svg><use href="#i-search"/></svg>
+        <input id="q" type="text" inputmode="search" enterkeyhint="search" autocomplete="off" placeholder="Nom de pièce ou référence…" aria-label="Rechercher dans le catalogue">
+        <button class="clear" id="clearQ" type="button" aria-label="Effacer la recherche" hidden>×</button>
+      </label>
+      <select id="veh" aria-label="Type de véhicule"><option value="">Tous véhicules</option><option value="auto">Voiture, 4x4, pick-up</option><option value="moto">Moto</option></select>
+      <select id="sort" aria-label="Trier"><option value="rel">Tri : pertinence</option><option value="az">Tri : A → Z</option></select>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Catégories"></div>
+  </div>
+  <p class="status" id="status" aria-live="polite"></p>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="band" id="atelier"><div class="wrap">
+  <div class="sec-head">
+    <p class="eyebrow">Atelier</p>
+    <h2>Entretien, diagnostic, dépannage</h2>
+    <p>La pièce et la pose au même endroit : pas d'aller-retour entre le magasin et le mécanicien.</p>
+  </div>
+  <div class="bays">
+    <div class="bay"><h3>Entretien</h3><ul><li>Vidange et remplacement des filtres</li><li>Plaquettes, disques, étriers, mâchoires</li><li>Embrayage, cardans, roulements</li><li>Amortisseurs, bras, rotules, direction</li><li>Distribution, joints, refroidissement</li><li>Climatisation</li></ul><button class="btn btn-accent" type="button" data-rdv="Entretien">Prendre rendez-vous</button></div>
+    <div class="bay"><h3>Diagnostic</h3><ul><li>Lecture et effacement des codes défaut</li><li>Voyant moteur, ABS, airbag</li><li>Injection, turbo, capteurs</li><li>Contrôle avant achat d'un véhicule</li><li>Devis de réparation avant intervention</li></ul><button class="btn btn-accent" type="button" data-rdv="Diagnostic">Demander un diagnostic</button></div>
+    <div class="bay"><h3>Dépannage</h3><ul><li>Panne de batterie ou de démarrage</li><li>Véhicule immobilisé sur la route</li><li>Prise en charge jusqu'à l'atelier</li><li>Réparation avec les pièces en stock</li></ul><p style="color:var(--band-muted)">En cas de panne, le plus rapide est d'appeler : <b class="sel" style="color:var(--band-ink)">+221 78 173 90 92</b></p><button class="btn btn-accent" type="button" data-rdv="Dépannage">Signaler une panne</button></div>
+  </div>
+</div></section>
+
+<section id="apropos"><div class="wrap why">
+  <div>
+    <p class="eyebrow">Pourquoi BABS</p>
+    <h2>Un seul interlocuteur pour votre véhicule</h2>
+    <ul>
+      <li><svg><use href="#i-check"/></svg><div><b>Un large choix en magasin</b><span>Du joint de soupape au moteur complet, en passant par la carrosserie et l'éclairage.</span></div></li>
+      <li><svg><use href="#i-check"/></svg><div><b>La pièce vérifiée par référence</b><span>Envoyez la référence, la carte grise ou une photo de l'ancienne pièce : on vérifie la compatibilité avant la vente.</span></div></li>
+      <li><svg><use href="#i-check"/></svg><div><b>Commande sur demande</b><span>La pièce n'est pas au catalogue ? Dites-nous ce que vous cherchez, on vous répond sur la disponibilité.</span></div></li>
+      <li><svg><use href="#i-check"/></svg><div><b>Vente et pose</b><span>L'atelier monte la pièce achetée au magasin.</span></div></li>
+    </ul>
+    <p class="eyebrow" style="margin-top:26px">Marques courantes</p>
+    <div class="brands"><span>Toyota</span><span>Mitsubishi</span><span>Nissan</span><span>Hyundai</span><span>Kia</span><span>Honda</span><span>Ford</span><span>Peugeot</span><span>Renault</span><span>Mercedes</span><span>Autres sur demande</span></div>
+  </div>
+  <div class="dg">
+    <p class="eyebrow">Le mot du directeur</p>
+    <blockquote>« Chez BABS, vous repartez avec la pièce qui correspond à votre véhicule, ou avec une réponse claire sur le délai pour l'obtenir. »</blockquote>
+    <div class="who"><img src="img/logo.png" alt="" width="48" height="48"><div><b>Babacar Niang</b><small>Directeur général, BABS Services Automobiles</small></div></div>
+  </div>
+</div></section>
+
+<section id="contact" style="background:var(--surface-2)"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Contact</p><h2>Demande de pièce ou rendez-vous</h2><p>Remplissez le formulaire : il prépare votre message, vous l'envoyez ensuite depuis WhatsApp.</p></div>
+  <div class="contact">
+    <div class="info">
+      <div><span class="tel sel" id="telTxt">+221 78 173 90 92</span><button class="copy" id="copyTel" type="button">Copier</button></div>
+      <dl>
+        <dt>Adresse</dt><dd>Avenue de l'Université<br>Dakar, Sénégal</dd>
+        <dt>Direction</dt><dd>Babacar Niang, directeur général</dd>
+        <dt>WhatsApp</dt><dd><span class="sel">+221 78 173 90 92</span></dd>
+        <dt>Services</dt><dd>Pièces détachées, entretien, diagnostic, dépannage</dd>
+      </dl>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a class="btn btn-accent" href="tel:+221781739092">Appeler</a>
+        <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Avenue+de+l%27Universit%C3%A9+Dakar+S%C3%A9n%C3%A9gal">Voir sur Google Maps</a>
+      </div>
+    </div>
+    <form class="req" id="req" novalidate>
+      <label>Votre nom<input id="fName" type="text" autocomplete="name" placeholder="Prénom et nom"></label>
+      <label>Type de demande<select id="fType"><option>Pièce détachée</option><option>Entretien</option><option>Diagnostic</option><option>Dépannage</option></select></label>
+      <label class="full">Véhicule<input id="fCar" type="text" placeholder="Marque, modèle, année. Ex. : Toyota Hilux 2016 diesel"></label>
+      <label class="full">Votre demande<textarea id="fMsg" placeholder="Pièce recherchée, référence si vous l'avez, ou description de la panne"></textarea></label>
+      <p class="hint full" id="fQuote" hidden></p>
+      <a class="btn btn-wa full" id="fSend" target="_blank" rel="noopener" href="https://wa.me/221781739092"><svg><use href="#i-wa"/></svg>Envoyer sur WhatsApp</a>
+      <p class="hint full">Rien n'est envoyé tant que vous n'avez pas validé le message dans WhatsApp.</p>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span><b>BABS</b> Services Automobiles Tout-en-Un · Avenue de l'Université, Dakar</span>
+  <span>Pièces détachées · Garage · Diagnostic · Dépannage · <b class="sel">+221 78 173 90 92</b></span>
+</div></footer>
+
+<a class="fab" target="_blank" rel="noopener" href="https://wa.me/221781739092?text=Bonjour%20BABS%2C%20je%20cherche%20une%20pi%C3%A8ce." aria-label="Écrire à BABS sur WhatsApp"><svg><use href="#i-wa"/></svg><span>WhatsApp</span></a>
+
+<dialog id="dProd" aria-labelledby="pName"><button class="dlg-x" type="button" data-close aria-label="Fermer">×</button><div class="prod" id="prodBody"></div></dialog>
+<dialog id="dQuote" aria-labelledby="qTitle"><button class="dlg-x" type="button" data-close aria-label="Fermer">×</button>
+  <div class="qd"><h3 id="qTitle" style="font-size:1.7rem;text-transform:uppercase">Mon devis</h3><div id="qBody"></div></div>
+</dialog>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script>
+(function(){
+'use strict';
+var WA='https://wa.me/221781739092?text=';
+var CATS={moteur:'Moteur',frein:'Freinage',susp:'Suspension & direction',trans:'Transmission & embrayage',froid:'Refroidissement & clim',eclair:'Éclairage',carro:'Carrosserie',filtre:'Filtres & huiles',elec:'Électricité & allumage',moto:'Moto'};
+// n: nom, c: catégorie, i: photos, r: références lisibles sur l'emballage, k: mots-clés de recherche, d: description
+var P=[
+{n:'Turbocompresseur',c:'moteur',i:[106,105,109,111],k:'turbo suralimentation diesel',d:'Turbo neuf avec actionneur électronique, livré dans sa coque de protection.'},
+{n:'Culasse',c:'moteur',i:[51,52,57],k:'culasse rampe culbuteurs haut moteur',d:'Culasse nue ou avec rampe de culbuteurs.'},
+{n:'Vilebrequin',c:'moteur',i:[55,284,57],k:'vilebrequin bas moteur crankshaft',d:'Vilebrequin neuf, à choisir selon le type moteur.'},
+{n:'Piston',c:'moteur',i:[162,182,187],k:'piston axe segment bas moteur',d:'Piston avec axe. Cote standard ou réparation selon disponibilité.'},
+{n:'Bielle',c:'moteur',i:[180,187],k:'bielle bas moteur',d:'Bielle moteur, vendue à l\'unité.'},
+{n:'Segments de piston',c:'moteur',i:[167,166],k:'segment segmentation piston jeu',d:'Jeu de segments par moteur.'},
+{n:'Coussinets de bielle et de palier',c:'moteur',i:[161,244],k:'coussinet palier bielle vilebrequin taiho',d:'Jeux de coussinets, cotes standard et réparation.'},
+{n:'Joint de culasse',c:'moteur',i:[163,169],k:'joint culasse etancheite',d:'Joint de culasse multicouche, 4 cylindres.'},
+{n:'Pochette de joints moteur',c:'moteur',i:[98,99],k:'pochette joint complet rodage kit joints moteur',d:'Kit complet de joints pour réfection moteur.'},
+{n:'Joints de queue de soupape',c:'moteur',i:[76,81],r:['90913-02121','90913-02124'],k:'joint soupape valve seal toyota',d:'Sachet de 16 joints de queue de soupape.'},
+{n:'Soupapes moteur',c:'moteur',i:[127],k:'soupape admission echappement fuji valve',d:'Soupapes d\'admission et d\'échappement.'},
+{n:'Kit chaîne de distribution',c:'moteur',i:[178,171,173,176],k:'chaine distribution patin guide pignon tendeur kit',d:'Chaîne, patins, guides, pignon et tendeur.'},
+{n:'Galet tendeur de courroie d\'accessoires',c:'moteur',i:[34,36],k:'galet tendeur courroie accessoire poulie',d:'Tendeur automatique complet avec galet.'},
+{n:'Galet enrouleur',c:'moteur',i:[49],k:'galet enrouleur poulie courroie roulement',d:'Galet enrouleur de courroie.'},
+{n:'Courroies',c:'moteur',i:[56],k:'courroie accessoire alternateur distribution trapezoidale striee',d:'Courroies d\'accessoires et de distribution, plusieurs longueurs.'},
+{n:'Pompe à huile et carter de distribution',c:'moteur',i:[3],k:'pompe huile carter distribution lubrification',d:'Carter de distribution avec pompe à huile intégrée.'},
+{n:'Supports moteur et boîte',c:'moteur',i:[93,94,101],k:'support moteur boite silentbloc tampon',d:'Supports et tampons moteur.'},
+{n:'Injecteur diesel common rail',c:'moteur',i:[124,125,290],k:'injecteur diesel common rail injection gasoil',d:'Injecteur common rail, à vérifier par référence.'},
+{n:'Injecteur diesel mécanique',c:'moteur',i:[128,135],k:'injecteur porte injecteur nez diesel gasoil toyota',d:'Porte-injecteur complet pour moteur diesel à injection mécanique.'},
+{n:'Bougies de préchauffage',c:'moteur',i:[133,132,134],k:'bougie prechauffage glow plug diesel demarrage',d:'Bougies de préchauffage pour moteurs diesel.'},
+{n:'Boîtier de filtre à air',c:'moteur',i:[26],k:'boitier filtre air admission',d:'Boîtier de filtre à air complet.'},
+{n:'Actionneur de turbo',c:'moteur',i:[286],k:'actionneur turbo electronique wastegate geometrie variable',d:'Actionneur électronique de turbo.'},
+{n:'Moteur complet',c:'moteur',i:[271,275],k:'moteur complet occasion echange bloc',d:'Moteur complet sur commande. Donnez le type moteur de votre carte grise.'},
+{n:'Chemise, piston et segments',c:'moteur',i:[239],k:'chemise piston segment kit revision liner',d:'Ensemble chemise, piston, axe et segments.'},
+{n:'Catalyseur',c:'moteur',i:[260],k:'catalyseur pot catalytique echappement',d:'Catalyseur d\'échappement, sur commande.'},
+
+{n:'Étrier de frein',c:'frein',i:[139,138,142,143,203,201],k:'etrier frein piston caliper avant',d:'Étriers avant à 4 pistons, côté gauche et droit.'},
+{n:'Disque de frein',c:'frein',i:[210,211,141,214],k:'disque frein ventile avant arriere',d:'Disques pleins et ventilés.'},
+{n:'Plaquettes de frein',c:'frein',i:[43],k:'plaquette frein garniture toyota origine avant arriere',d:'Plaquettes en boîte d\'origine Toyota.'},
+{n:'Mâchoires de frein',c:'frein',i:[120],k:'machoire frein tambour garniture arriere',d:'Jeu de mâchoires pour freins à tambour.'},
+{n:'Kit de ressorts de frein à tambour',c:'frein',i:[123],k:'ressort kit fixation machoire tambour',d:'Ressorts et accessoires de montage des mâchoires.'},
+{n:'Servofrein',c:'frein',i:[17,269],k:'servofrein mastervac assistance freinage',d:'Servofrein (mastervac) complet.'},
+{n:'Bloc hydraulique ABS',c:'frein',i:[299],k:'abs bloc hydraulique calculateur pompe',d:'Bloc ABS, à vérifier par référence.'},
+
+{n:'Amortisseurs',c:'susp',i:[53,54,58,221],k:'amortisseur suspension avant arriere jambe force',d:'Amortisseurs avant et arrière, huile et gaz.'},
+{n:'Bras de suspension inférieur',c:'susp',i:[10,19,30],k:'bras suspension triangle inferieur avant',d:'Triangles et bras inférieurs avec silentblocs montés.'},
+{n:'Bras de suspension (assortiment)',c:'susp',i:[226,230],k:'bras suspension triangle superieur inferieur rotule',d:'Bras supérieurs et inférieurs pour plusieurs modèles, sur demande.'},
+{n:'Barre de poussée arrière',c:'susp',i:[11,110,113,216],k:'barre poussee tirant bras arriere pont panhard',d:'Bras tirés et barres de liaison du pont arrière.'},
+{n:'Bras de liaison arrière',c:'susp',i:[114,115,112,118],k:'bras liaison arriere tirant suspension multibras',d:'Bras de suspension arrière avec silentblocs.'},
+{n:'Rotules et biellettes de direction',c:'susp',i:[4],k:'rotule biellette direction barre stabilisatrice axiale',d:'Rotules de direction, de suspension et biellettes.'},
+{n:'Porte-fusée',c:'susp',i:[13],k:'porte fusee pivot moyeu essieu',d:'Porte-fusée avant gauche et droit.'},
+{n:'Silentblocs',c:'susp',i:[102,103,100],k:'silentbloc bague caoutchouc bras triangle lame',d:'Silentblocs de bras, de triangles et de lames.'},
+{n:'Coupelle d\'amortisseur',c:'susp',i:[104,108],k:'coupelle amortisseur butee support superieur',d:'Support supérieur d\'amortisseur.'},
+{n:'Lames de ressort',c:'susp',i:[136],k:'lame ressort suspension arriere pick-up paquet',d:'Paquets de lames pour pick-up.'},
+{n:'Crémaillère de direction',c:'susp',i:[197,191,194,196],k:'cremaillere direction assistee boitier steering',d:'Crémaillères de direction assistée complètes.'},
+{n:'Pompe de direction assistée',c:'susp',i:[122,121,129],k:'pompe direction assistee hydraulique poulie',d:'Pompe de direction assistée avec poulie.'},
+{n:'Boulons de réglage de carrossage',c:'susp',i:[116,117,119],k:'boulon vis excentrique carrossage reglage came',d:'Vis excentriques avec cames et écrous.'},
+{n:'Moyeu de roue',c:'susp',i:[148,154,157,156,159],k:'moyeu roue goujon avant arriere',d:'Moyeux avant et arrière avec goujons.'},
+{n:'Roulement de roue',c:'susp',i:[150,149,151,152,158,77],r:['42450-60070','43560-26010'],k:'roulement roue moyeu bearing toyota',d:'Roulements de roue avec flasque.'},
+{n:'Roulement conique',c:'susp',i:[48,276],r:['90368-45087'],k:'roulement conique bearing tapered toyota pont',d:'Roulement à rouleaux coniques, boîte d\'origine Toyota.'},
+{n:'Soufflets de crémaillère',c:'susp',i:[63],k:'soufflet cremaillere direction cache poussiere',d:'Soufflets de direction.'},
+{n:'Bocal de direction assistée',c:'susp',i:[84],k:'bocal reservoir direction assistee huile',d:'Réservoir d\'huile de direction assistée.'},
+
+{n:'Cardan',c:'trans',i:[5,20,25],k:'cardan transmission arbre roue soufflet',d:'Cardans complets avant, gauche et droit.'},
+{n:'Arbre de transmission',c:'trans',i:[38,32],k:'arbre transmission pont 4x4',d:'Arbres de transmission avant et arrière.'},
+{n:'Croisillon de cardan',c:'trans',i:[7],k:'croisillon cardan joint universel gmb',d:'Croisillons GMB pour arbre de transmission.'},
+{n:'Kit embrayage',c:'trans',i:[46,44,208,209,236],k:'embrayage disque mecanisme butee kit clutch',d:'Mécanisme, disque et butée.'},
+{n:'Émetteur et récepteur d\'embrayage',c:'trans',i:[12,14],k:'emetteur recepteur embrayage maitre cylindre hydraulique',d:'Cylindres émetteur et récepteur d\'embrayage.'},
+{n:'Couple conique',c:'trans',i:[188],k:'couple conique pont differentiel couronne pignon attaque',d:'Couronne et pignon d\'attaque pour pont.'},
+
+{n:'Radiateur moteur',c:'froid',i:[195,198,200,31],k:'radiateur refroidissement eau moteur',d:'Radiateurs aluminium, boîte manuelle ou automatique.'},
+{n:'Condenseur de climatisation',c:'froid',i:[190,192],k:'condenseur climatisation clim radiateur',d:'Condenseurs de clim.'},
+{n:'Compresseur de climatisation',c:'froid',i:[2,267],k:'compresseur climatisation clim',d:'Compresseur de clim neuf avec poulie et embrayage.'},
+{n:'Hélice de ventilateur moteur',c:'froid',i:[21,22],k:'helice ventilateur pale refroidissement',d:'Hélices de ventilateur.'},
+{n:'Visco-coupleur de ventilateur',c:'froid',i:[33],k:'visco coupleur ventilateur embrayage visqueux',d:'Coupleur visqueux de ventilateur.'},
+{n:'Durites',c:'froid',i:[40,41],k:'durite durit tuyau radiateur eau admission turbo',d:'Durites de radiateur et d\'admission.'},
+{n:'Vase d\'expansion',c:'froid',i:[92,273],k:'vase expansion bocal liquide refroidissement lave glace reservoir',d:'Vases d\'expansion et réservoirs de lave-glace.'},
+
+{n:'Phares avant',c:'eclair',i:[15,16,42,50,245],k:'phare optique avant projecteur feu',d:'Optiques avant, gauche et droite.'},
+{n:'Feux arrière',c:'eclair',i:[6,8],k:'feu arriere stop clignotant optique',d:'Feux arrière complets.'},
+{n:'Antibrouillard',c:'eclair',i:[83],k:'antibrouillard feu brouillard projecteur',d:'Projecteur antibrouillard avant.'},
+{n:'Enjoliveurs d\'antibrouillard',c:'eclair',i:[80,82,78,79],k:'enjoliveur cache antibrouillard grille pare-chocs',d:'Caches et grilles d\'antibrouillard.'},
+{n:'Troisième feu stop',c:'eclair',i:[60],k:'feu stop troisieme hayon',d:'Feu stop supplémentaire.'},
+{n:'Répétiteurs de clignotant',c:'eclair',i:[65],k:'repetiteur clignotant aile lateral',d:'Clignotants latéraux.'},
+
+{n:'Calandre',c:'carro',i:[23,27],k:'calandre grille face avant chrome',d:'Calandres chromées et noires.'},
+{n:'Pare-chocs',c:'carro',i:[263,268,272],k:'pare chocs bouclier avant arriere',d:'Pare-chocs avant et arrière, sur commande.'},
+{n:'Kit face avant complet',c:'carro',i:[231,262,264],k:'kit carrosserie face avant facelift conversion capot aile',d:'Kits de carrosserie et de conversion, sur commande.'},
+{n:'Pare-chocs arrière de pick-up',c:'carro',i:[291],k:'pare chocs arriere pick-up marchepied chrome l200',d:'Pare-chocs arrière chromé avec marchepied.'},
+{n:'Lève-vitre',c:'carro',i:[28,70,75],k:'leve vitre mecanisme vitre porte',d:'Mécanismes de lève-vitre manuels et électriques.'},
+{n:'Serrure de porte',c:'carro',i:[66,71,90,91],k:'serrure porte fermeture centralisee',d:'Serrures de porte et de hayon.'},
+{n:'Charnières de capot',c:'carro',i:[73,74],k:'charniere capot',d:'Charnières de capot gauche et droite.'},
+{n:'Poignées de porte',c:'carro',i:[62,270,59],k:'poignee porte exterieure chrome hayon',d:'Poignées extérieures et poignée de hayon chromée.'},
+{n:'Barillet avec clés',c:'carro',i:[68],k:'barillet cle serrure contact neiman',d:'Barillet de serrure livré avec deux clés.'},
+{n:'Bavettes',c:'carro',i:[253,70],k:'bavette garde boue',d:'Jeux de bavettes avant et arrière.'},
+{n:'Commande de lève-vitre',c:'carro',i:[242,252],k:'commande bouton interrupteur leve vitre electrique platine',d:'Platines de commande de vitres électriques.'},
+{n:'Garniture de porte',c:'carro',i:[237],k:'garniture panneau porte interieur',d:'Panneau de porte intérieur, sur commande.'},
+{n:'Poignées de maintien',c:'carro',i:[282],k:'poignee maintien plafond interieur',d:'Poignées de maintien intérieures.'},
+{n:'Gâches de porte',c:'carro',i:[212,219],k:'gache porte butee fermeture',d:'Gâches de fermeture de porte.'},
+{n:'Protection sous moteur',c:'carro',i:[24],k:'protection cache sous moteur carter',d:'Caches de protection sous moteur.'},
+{n:'Vérins de hayon',c:'carro',i:[266],k:'verin hayon coffre electrique',d:'Vérins de hayon, sur commande.'},
+{n:'Joints lèche-vitre',c:'carro',i:[61,69],k:'joint leche vitre baguette porte',d:'Lèche-vitres et baguettes de porte.'},
+
+{n:'Filtres à huile',c:'filtre',i:[193],k:'filtre huile vidange cartouche',d:'Filtres à huile vissés, nombreuses références.'},
+{n:'Filtres à gasoil',c:'filtre',i:[183],k:'filtre gasoil gazole carburant diesel element',d:'Éléments filtrants pour gasoil et huile.'},
+{n:'Filtres à air',c:'filtre',i:[184,168,189,205,213],k:'filtre air moteur',d:'Filtres à air plats et cylindriques.'},
+{n:'Filtres d\'habitacle',c:'filtre',i:[170,175,206,296],r:['87139-58010'],k:'filtre habitacle pollen climatisation clim charbon',d:'Filtres d\'habitacle, simples ou à charbon actif.'},
+{n:'Huile moteur',c:'filtre',i:[185,186],k:'huile moteur vidange 5w30 toyota bidon',d:'Huiles moteur en bidon.'},
+{n:'Huile de boîte CVT et ATF',c:'filtre',i:[186,185],k:'huile boite automatique cvt atf ns-2 ns-3 nissan toyota',d:'Fluides pour boîtes CVT et automatiques.'},
+{n:'Additifs et produits d\'entretien',c:'filtre',i:[165],k:'additif produit liquide frein nettoyant joint silicone',d:'Additifs, liquides et produits d\'atelier.'},
+
+{n:'Batterie',c:'elec',i:[179],k:'batterie demarrage 12v sans entretien',d:'Batteries sans entretien.'},
+{n:'Bougies d\'allumage',c:'elec',i:[130],k:'bougie allumage essence',d:'Bougies d\'allumage pour moteurs essence.'},
+{n:'Pompe à carburant',c:'elec',i:[232],k:'pompe carburant essence jauge reservoir',d:'Module de pompe à carburant avec jauge.'},
+{n:'Calculateur moteur',c:'elec',i:[285,292],k:'calculateur moteur ecu boitier electronique',d:'Calculateurs, à vérifier par référence exacte.'},
+{n:'Alternateur',c:'elec',i:[],k:'alternateur charge batterie',d:'Sur demande : indiquez le véhicule.'},
+{n:'Démarreur',c:'elec',i:[],k:'demarreur demarrage',d:'Sur demande : indiquez le véhicule.'},
+{n:'Bobines d\'allumage',c:'elec',i:[],k:'bobine allumage essence',d:'Sur demande : indiquez le véhicule.'},
+
+{n:'Kit chaîne moto',c:'moto',i:[],k:'moto chaine pignon couronne kit transmission scooter',d:'Sur demande : indiquez la marque et la cylindrée.'},
+{n:'Plaquettes de frein moto',c:'moto',i:[],k:'moto plaquette frein scooter',d:'Sur demande : indiquez la marque et la cylindrée.'},
+{n:'Batterie moto',c:'moto',i:[],k:'moto batterie scooter 12v',d:'Sur demande : indiquez la marque et la cylindrée.'},
+{n:'Huile moteur moto',c:'moto',i:[],k:'moto huile moteur 4t 2t scooter vidange',d:'Sur demande.'},
+{n:'Bougie moto',c:'moto',i:[],k:'moto bougie allumage scooter',d:'Sur demande : indiquez la marque et la cylindrée.'},
+{n:'Filtre à air moto',c:'moto',i:[],k:'moto filtre air scooter',d:'Sur demande : indiquez la marque et la cylindrée.'},
+{n:'Pneus et chambres à air moto',c:'moto',i:[],k:'moto pneu chambre air roue scooter',d:'Sur demande : indiquez la dimension.'},
+{n:'Câbles et poignées moto',c:'moto',i:[],k:'moto cable frein embrayage accelerateur poignee levier scooter',d:'Sur demande : indiquez la marque et la cylindrée.'}
+];
+// Synonymes : ce que les clients tapent -> mots du catalogue
+var SYN={shock:['amortisseur'],amorto:['amortisseur'],optique:['phare','feu'],lampe:['phare','feu'],lumiere:['phare','feu'],ampoule:['phare','feu'],clim:['climatisation'],ac:['climatisation'],brake:['frein'],freinage:['frein'],clutch:['embrayage'],radiator:['radiateur'],battery:['batterie'],filter:['filtre'],bearing:['roulement'],spark:['bougie'],transmission:['cardan','arbre'],triangle:['bras'],steering:['direction','cremaillere'],volant:['direction'],vitre:['leve'],glace:['leve','vitre'],parechoc:['pare'],parechocs:['pare'],bouclier:['pare'],bumper:['pare'],belt:['courroie'],mastervac:['servofrein'],vidange:['huile','filtre'],oil:['huile'],lubrifiant:['huile'],engine:['moteur'],scooter:['moto'],jakarta:['moto'],essuie:['lave'],pot:['catalyseur'],echappement:['catalyseur'],injection:['injecteur'],ressort:['lame','ressort'],porte:['serrure','poignee','porte'],capot:['charniere','capot'],retro:['retroviseur'],gasoil:['gasoil','diesel'],gazole:['gasoil'],diesel:['diesel','gasoil'],joint:['joint'],pompe:['pompe'],disc:['disque'],pad:['plaquette'],light:['phare','feu'],hub:['moyeu'],'4x4':['pick','4x4']};
+
+function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,' ').trim()}
+function stem(w){return w.length>3&&/[sx]$/.test(w)&&!/^\d/.test(w)?w.slice(0,-1):w}
+function words(s){return norm(s).split(' ').filter(Boolean).map(stem)}
+function lev(a,b,max){var la=a.length,lb=b.length;if(Math.abs(la-lb)>max)return 99;var prev=[],cur=[],i,j;for(j=0;j<=lb;j++)prev[j]=j;for(i=1;i<=la;i++){cur=[i];var best=i;for(j=1;j<=lb;j++){cur[j]=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));if(cur[j]<best)best=cur[j]}if(best>max)return 99;prev=cur}return prev[lb]}
+P.forEach(function(p,x){p.id=x;p.v=p.c==='moto'?'moto':'auto';p.r=p.r||[];
+  p._n=words(p.n);p._k=words(p.k+' '+CATS[p.c]);p._r=p.r.map(function(r){return r.toLowerCase().replace(/[^a-z0-9]/g,'')});
+  p._sort=norm(p.n)});
+function img(i){return 'img/'+('00'+i).slice(-3)+'.jpg'}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var PH='<span class="ph"><svg><use href="#i-parts"/></svg></span>';
+
+// score d'un mot de la requête contre une liste de mots
+var FUZZY=false;
+function wordScore(t,list){var best=0,fix=null;for(var i=0;i<list.length;i++){var w=list[i],s=0;
+  if(w===t)s=10;else if(w.indexOf(t)===0)s=7;else if(t.length>=3&&w.indexOf(t)>0)s=4;
+  else if(FUZZY&&t.length>=4){var max=t.length>=7?2:1;var d=Math.min(lev(t,w,max),w.length>t.length?lev(t,w.slice(0,t.length),max):99);if(d<=max){s=3-d*.5;if(s>best)fix=w}}
+  if(s>best)best=s}
+  return{s:best,fix:best<4?fix:null}}
+function search(q){FUZZY=false;var r=search1(q);if(r&&!r.list.length){FUZZY=true;r=search1(q)}return r}
+function search1(q){
+  var raw=norm(q);if(!raw)return null;
+  var compact=raw.replace(/ /g,'');var toks=raw.split(' ').map(stem);
+  var res=[],fixes={};
+  P.forEach(function(p){var total=0,ok=true,pf={};
+    // référence constructeur : avec ou sans tirets
+    if(/\d{3}/.test(compact))p._r.forEach(function(r){if(r.indexOf(compact)===0||(compact.length>=5&&r.indexOf(compact)>=0))total+=40});
+    if(!total)for(var i=0;i<toks.length;i++){var t=toks[i];
+      var a=wordScore(t,p._n),b=wordScore(t,p._k);var s=Math.max(a.s*1.6,b.s);var fix=a.s*1.6>=b.s?a.fix:b.fix;
+      (SYN[t]||[]).forEach(function(y){var c=Math.max(wordScore(y,p._n).s*1.4,wordScore(y,p._k).s*.9);if(c>s){s=c;fix=null}});
+      if(s<=0){ok=false;break}
+      if(fix)pf[t]=fix;if(p._n[0].indexOf(t)===0)s+=4;total+=s}
+    if(ok&&total>0){res.push({p:p,s:total+(p.i.length?0.5:0)});for(var k in pf)fixes[k]=pf[k]}});
+  res.sort(function(a,b){return b.s-a.s||a.p.id-b.p.id});
+  var top=res.length?res[0].s:0;
+  var corrected=null;
+  if(res.length&&Object.keys(fixes).length)corrected=toks.map(function(t){return fixes[t]||t}).join(' ');
+  return{list:res.map(function(r){return r.p}),corrected:corrected,toks:toks}}
+
+var state={q:'',cat:'',veh:'',sort:'rel'};
+var quote=[];try{quote=JSON.parse(localStorage.getItem('babs-devis')||'[]').filter(function(n){return P.some(function(p){return p.n===n})})}catch(e){}
+var $=function(id){return document.getElementById(id)};
+var grid=$('grid'),statusEl=$('status'),chips=$('chips'),qIn=$('q'),heroQ=$('heroQ'),sug=$('suggest');
+
+function waProduct(p){return WA+encodeURIComponent('Bonjour BABS, je suis intéressé par : '+p.n+(p.r.length?' (réf. '+p.r.join(', ')+')':'')+'.\nMon véhicule : \nMerci de me donner le prix et la disponibilité.')}
+function hl(name,toks){if(!toks)return esc(name);return name.split(/(\s+|['’-])/).map(function(part){var w=stem(norm(part));if(w&&toks.some(function(t){return t.length>1&&w.indexOf(t)===0}))return '<mark>'+esc(part)+'</mark>';return esc(part)}).join('')}
+
+function current(){var r=search(state.q);var list=r?r.list:P.slice();
+  if(state.veh)list=list.filter(function(p){return p.v===state.veh});
+  var counts={};list.forEach(function(p){counts[p.c]=(counts[p.c]||0)+1});
+  var total=list.length;
+  if(state.cat)list=list.filter(function(p){return p.c===state.cat});
+  if(state.sort==='az'||!r&&state.sort==='az')list=list.slice().sort(function(a,b){return a._sort<b._sort?-1:1});
+  return{list:list,counts:counts,total:total,r:r}}
+
+function render(){var c=current();
+  chips.innerHTML='<button class="chip" type="button" data-cat="" aria-pressed="'+(!state.cat)+'">Tout<i>'+c.total+'</i></button>'+Object.keys(CATS).map(function(k){var n=c.counts[k]||0;return n||state.cat===k?'<button class="chip" type="button" data-cat="'+k+'" aria-pressed="'+(state.cat===k)+'">'+CATS[k]+'<i>'+n+'</i></button>':''}).join('');
+  $('clearQ').hidden=!state.q;
+  var msg=c.list.length+' pièce'+(c.list.length>1?'s':'');
+  if(state.q)msg+=' pour « '+esc(state.q)+' »';
+  if(state.cat)msg+=' dans '+CATS[state.cat];
+  if(c.r&&c.r.corrected&&c.list.length)msg+='. Résultats proches de <b>'+esc(c.r.corrected)+'</b>';
+  if(state.q||state.cat||state.veh)msg+=' · <button type="button" id="reset">Tout réafficher</button>';
+  statusEl.innerHTML=msg;
+  if(!c.list.length){
+    var t=WA+encodeURIComponent('Bonjour BABS, je cherche cette pièce : '+(state.q||'')+'\nMon véhicule : ');
+    grid.innerHTML='<div class="empty" style="grid-column:1/-1"><h3>Pas de résultat'+(state.q?' pour « '+esc(state.q)+' »':'')+'</h3><p>Tout le stock n\'est pas encore en ligne. Envoyez votre recherche au magasin, avec le modèle du véhicule : on vous répond sur la disponibilité.</p><a class="btn btn-wa" target="_blank" rel="noopener" href="'+t+'"><svg><use href="#i-wa"/></svg>Demander cette pièce</a></div>';return}
+  grid.innerHTML=c.list.map(function(p){var inQ=quote.indexOf(p.n)>=0;
+    return '<article class="card"><button class="pic" type="button" data-open="'+p.id+'" aria-label="Voir '+esc(p.n)+'">'+(p.i.length?'<img loading="lazy" src="'+img(p.i[0])+'" alt="'+esc(p.n)+'">'+(p.i.length>1?'<span class="count">'+p.i.length+' photos</span>':''):PH)+'</button>'+
+    '<div class="body"><span class="cat">'+CATS[p.c]+'</span><h3>'+hl(p.n,c.r&&c.r.toks)+'</h3>'+(p.r.length?'<span class="ref">Réf. '+p.r.join(' · ')+'</span>':(p.i.length?'':'<span class="ref">Sur demande</span>'))+
+    '<div class="acts"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+waProduct(p)+'">Demander le prix</a><button class="btn btn-ghost add" type="button" data-add="'+p.id+'" aria-pressed="'+inQ+'" aria-label="'+(inQ?'Retirer du devis':'Ajouter au devis')+'" title="'+(inQ?'Retirer du devis':'Ajouter au devis')+'">'+(inQ?'✓':'+')+'</button></div></div></article>'}).join('')}
+
+function setQ(v,from){state.q=v;if(from!==qIn)qIn.value=v;if(from!==heroQ)heroQ.value=v;if(state.cat&&v){var c=current();if(!c.list.length)state.cat=''}render()}
+function suggest(){var v=heroQ.value;var r=search(v);if(!r||!v.trim()){sug.hidden=true;return}
+  var top=r.list.slice(0,5);
+  sug.innerHTML=top.map(function(p){return '<button type="button" data-open="'+p.id+'">'+(p.i.length?'<img src="'+img(p.i[0])+'" alt="">':'<span class="ph" style="width:44px;height:44px;border-radius:6px"><svg><use href="#i-parts"/></svg></span>')+'<span><b>'+esc(p.n)+'</b><small>'+CATS[p.c]+(p.r.length?' · réf. '+p.r[0]:'')+'</small></span></button>'}).join('')+
+    (r.list.length?'<button type="button" class="all" data-go>Voir les '+r.list.length+' résultats</button>':'<button type="button" class="all" data-go>Aucune pièce trouvée : demander au magasin</button>');
+  sug.hidden=false}
+function goCat(){sug.hidden=true;$('catalogue').scrollIntoView()}
+
+qIn.addEventListener('input',function(){setQ(qIn.value,qIn)});
+heroQ.addEventListener('input',function(){setQ(heroQ.value,heroQ);suggest()});
+heroQ.addEventListener('focus',suggest);
+heroQ.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();goCat()}if(e.key==='Escape')sug.hidden=true});
+document.addEventListener('click',function(e){if(!e.target.closest('.searchbox'))sug.hidden=true});
+sug.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;if(b.hasAttribute('data-go'))goCat();else{sug.hidden=true;openProd(+b.getAttribute('data-open'))}});
+$('clearQ').addEventListener('click',function(){setQ('');qIn.focus()});
+$('veh').addEventListener('change',function(e){state.veh=e.target.value;state.cat='';render()});
+$('sort').addEventListener('change',function(e){state.sort=e.target.value;render()});
+chips.addEventListener('click',function(e){var b=e.target.closest('[data-cat]');if(!b)return;state.cat=b.getAttribute('data-cat');render()});
+statusEl.addEventListener('click',function(e){if(e.target.id==='reset'){state.cat='';state.veh='';$('veh').value='';setQ('')}});
+['Plaquettes','Amortisseur','Filtre à huile','Phare','Embrayage','Radiateur','Moto'].forEach(function(t){var b=document.createElement('button');b.type='button';b.textContent=t;b.addEventListener('click',function(){state.cat='';setQ(t);goCat()});$('quick').appendChild(b)});
+
+// Fiche produit
+var dProd=$('dProd'),dQuote=$('dQuote');
+function openProd(id){var p=P[id];var inQ=quote.indexOf(p.n)>=0;
+  $('prodBody').innerHTML='<div class="gal"><div class="big">'+(p.i.length?'<img id="bigImg" src="'+img(p.i[0])+'" alt="'+esc(p.n)+'">':PH)+'</div>'+(p.i.length>1?'<div class="thumbs">'+p.i.map(function(i,x){return '<button type="button" data-img="'+i+'" aria-current="'+(x===0)+'" aria-label="Photo '+(x+1)+'"><img src="'+img(i)+'" alt=""></button>'}).join('')+'</div>':'')+'</div>'+
+  '<div class="txt"><span class="eyebrow">'+CATS[p.c]+'</span><h3 id="pName">'+esc(p.n)+'</h3>'+(p.r.length?'<span class="ref">Références visibles sur l\'emballage : <b class="sel">'+p.r.join('</b> · <b class="sel">')+'</b></span>':'')+'<p>'+esc(p.d)+'</p>'+
+  '<p class="note">Pour être sûr de la compatibilité, donnez la marque, le modèle et l\'année du véhicule, ou la référence de l\'ancienne pièce.</p>'+
+  '<a class="btn btn-wa" target="_blank" rel="noopener" href="'+waProduct(p)+'"><svg><use href="#i-wa"/></svg>Demander le prix sur WhatsApp</a>'+
+  '<button class="btn btn-ghost" type="button" data-add="'+p.id+'" data-full>'+(inQ?'✓ Dans mon devis (retirer)':'Ajouter à mon devis')+'</button></div>';
+  if(!dProd.open)dProd.showModal()}
+dProd.addEventListener('click',function(e){var t=e.target.closest('[data-img]');if(t){$('bigImg').src=img(t.getAttribute('data-img'));dProd.querySelectorAll('[data-img]').forEach(function(b){b.setAttribute('aria-current',b===t)})}});
+document.querySelectorAll('dialog').forEach(function(d){d.addEventListener('click',function(e){if(e.target===d||e.target.hasAttribute('data-close'))d.close()})});
+grid.addEventListener('click',function(e){var o=e.target.closest('[data-open]');if(o)openProd(+o.getAttribute('data-open'))});
+
+// Devis
+function saveQ(){try{localStorage.setItem('babs-devis',JSON.stringify(quote))}catch(e){}}
+function toast(t){var el=$('toast');el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){el.hidden=true},2200)}
+function quoteText(){return quote.map(function(n){var p=P.filter(function(x){return x.n===n})[0];return '- '+n+(p&&p.r.length?' (réf. '+p.r.join(', ')+')':'')}).join('\n')}
+function renderQuote(){ $('qCount').textContent=quote.length;
+  $('qBody').innerHTML=quote.length?'<ul>'+quote.map(function(n){var p=P.filter(function(x){return x.n===n})[0];return '<li>'+(p.i.length?'<img src="'+img(p.i[0])+'" alt="">':'<span class="ph"><svg><use href="#i-parts"/></svg></span>')+'<b>'+esc(n)+'</b><button type="button" data-rm="'+p.id+'" aria-label="Retirer '+esc(n)+'">×</button></li>'}).join('')+'</ul><p class="note" style="margin:14px 0">Le message liste ces pièces. Ajoutez votre véhicule dans WhatsApp avant d\'envoyer.</p><a class="btn btn-wa" style="width:100%" target="_blank" rel="noopener" href="'+WA+encodeURIComponent('Bonjour BABS, je souhaite un devis pour :\n'+quoteText()+'\nMon véhicule : ')+'"><svg><use href="#i-wa"/></svg>Envoyer la demande de devis</a>'
+  :'<p style="color:var(--muted)">Votre devis est vide. Dans le catalogue, appuyez sur « + » pour ajouter une pièce, puis envoyez toute la liste en un seul message.</p><button class="btn btn-accent" type="button" data-close style="margin-top:14px">Parcourir le catalogue</button>';
+  var fq=$('fQuote');fq.hidden=!quote.length;fq.textContent=quote.length?'Les '+quote.length+' pièce(s) de votre devis seront jointes au message.':'';updateForm()}
+function toggle(id){var n=P[id].n,x=quote.indexOf(n);if(x>=0){quote.splice(x,1);toast('Retiré du devis')}else{quote.push(n);toast('Ajouté au devis')}saveQ();renderQuote();render()}
+document.addEventListener('click',function(e){var a=e.target.closest('[data-add]');if(a){var id=+a.getAttribute('data-add');toggle(id);if(a.hasAttribute('data-full'))openProd(id);return}
+  var r=e.target.closest('[data-rm]');if(r){toggle(+r.getAttribute('data-rm'));return}
+  var d=e.target.closest('[data-rdv]');if(d){$('fType').value=d.getAttribute('data-rdv');updateForm();$('contact').scrollIntoView();$('fCar').focus({preventScroll:true})}});
+$('openQuote').addEventListener('click',function(){renderQuote();dQuote.showModal()});
+dQuote.addEventListener('click',function(e){if(e.target.closest('[data-close]')&&!quote.length)$('catalogue').scrollIntoView()});
+
+// Formulaire -> message WhatsApp
+function updateForm(){var t='Bonjour BABS,\nDemande : '+$('fType').value;
+  if($('fName').value.trim())t+='\nNom : '+$('fName').value.trim();
+  t+='\nVéhicule : '+$('fCar').value.trim();
+  if($('fMsg').value.trim())t+='\n'+$('fMsg').value.trim();
+  if(quote.length)t+='\nPièces :\n'+quoteText();
+  $('fSend').href=WA+encodeURIComponent(t)}
+$('req').addEventListener('input',updateForm);$('req').addEventListener('submit',function(e){e.preventDefault()});
+$('copyTel').addEventListener('click',function(){var b=this;function done(){b.textContent='Copié';setTimeout(function(){b.textContent='Copier'},1800)}
+  try{navigator.clipboard.writeText('+221781739092').then(done,sel)}catch(e){sel()}
+  function sel(){var r=document.createRange();r.selectNodeContents($('telTxt'));var s=getSelection();s.removeAllRanges();s.addRange(r)}});
+
+render();renderQuote();
+})();
+</script>
+</body>
+</html>
