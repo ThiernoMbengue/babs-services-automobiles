@@ -381,6 +381,47 @@ body{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-
   .suggest button{padding:6px 10px;gap:10px}.suggest img,.suggest .ph{width:36px;height:36px}.suggest b{font-size:.86rem}.suggest small{font-size:.74rem}
 }
 @media (max-width:360px){.hero h1{font-size:1.65rem}.services h3{font-size:.7rem}}
+/* Téléphone : finitions */
+.cat-sel,.tabbar,.bay .sum{display:none}
+@media (max-width:640px){
+  body{padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))}
+  .fab,.quote-btn,.chips{display:none}
+  .topbar{display:none}
+  #sort{display:none}
+  .cat-sel{display:block}
+  .tool-row select{height:40px}
+  .tool-row .field{height:42px}
+  .tool-row input,.search-field input{padding:0;height:38px}
+  .search-field .btn{height:38px;width:42px;padding:0}
+  .hero .eyebrow{display:none}
+  .hero h1{font-size:1.9rem}
+  .hero p.lead{font-size:.9rem}
+  .quick span{display:none}
+  .quick{flex-wrap:wrap;overflow:visible}
+  .quick button:nth-child(n+6){display:none}
+  .hero-cta{display:none}
+  .services{border-radius:10px}
+  .bays{gap:8px}
+  .bay{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2px 12px;padding:12px 14px}
+  .bay h3{font-size:1.1rem;grid-column:1}
+  .bay .sum{display:block;grid-column:1;color:var(--band-muted);font-size:.8rem;line-height:1.35}
+  .bay ul,.bay .tip{display:none}
+  .bay .btn{grid-column:2;grid-row:1/3;margin:0;align-self:center;font-size:.76rem;padding:8px 10px;white-space:nowrap;min-width:96px}
+  .why li span{font-size:.8rem}
+  .info .opt{display:none}
+  .contact{gap:14px}
+  form.req input,form.req select{height:42px;padding:0 10px}
+  form.req textarea{padding:9px 10px;min-height:64px}
+  footer .wrap{padding-block:16px}
+  .toast{bottom:calc(70px + env(safe-area-inset-bottom,0px))}
+  .tabbar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:45;background:var(--surface);border-top:1px solid var(--line);padding:4px max(6px,env(safe-area-inset-right,0px)) calc(4px + env(safe-area-inset-bottom,0px)) max(6px,env(safe-area-inset-left,0px));box-shadow:0 -4px 16px rgba(15,31,56,.08)}
+  .tabbar a,.tabbar button{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:50px;border:0;background:none;color:var(--muted);text-decoration:none;font-size:.68rem;font-weight:600;cursor:pointer;touch-action:manipulation}
+  .tabbar svg{width:22px;height:22px}
+  .tabbar .wa{color:var(--wa)}
+  .tabbar a:active,.tabbar button:active{color:var(--ink)}
+  .tabbar i{position:absolute;top:3px;left:calc(50% + 6px);font-style:normal;background:var(--accent);color:var(--accent-ink);border-radius:10px;min-width:17px;height:17px;font-size:.66rem;display:grid;place-items:center;padding:0 4px}
+  dialog{max-height:88vh}
+}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 </style>
@@ -395,6 +436,8 @@ body{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-
     <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.800" stroke-linecap="round" stroke-linejoin="round"><path d="M14.500 6.500a4.500 4.500 0 0 0-5.900 5.500L3 17.600 6.400 21l5.600-5.600a4.500 4.500 0 0 0 5.500-5.900l-2.800 2.800-2.500-.5-.5-2.500z"/></symbol>
     <symbol id="i-diag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.800" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M6 11h3l1.500-3 2.500 6 1.500-3H18M9 21h6"/></symbol>
     <symbol id="i-tow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.800" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16V9h7l3 4h8a2 2 0 0 1 2 2v1h-2M2 16h2m5 0h7"/><circle cx="6.500" cy="16.500" r="2"/><circle cx="18" cy="16.500" r="2"/><path d="M9 9l8-5v4"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h3.500l1.500 4.500-2 1.500a11 11 0 0 0 7 7l1.500-2 4.500 1.500V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.500l5 5L20 6.500"/></symbol>
   </defs>
 </svg>
@@ -417,7 +460,7 @@ body{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-
   <div>
     <p class="eyebrow">Pièces · Garage · Diagnostic · Dépannage</p>
     <h1>La bonne pièce, <em>du premier coup.</em></h1>
-    <p class="lead">Pièces pour voitures, 4x4, pick-up et motos, avec un atelier pour l'entretien, le diagnostic et le dépannage. Tout au même endroit, avenue de l'Université à Dakar.</p>
+    <p class="lead"><span class="lg">Pièces pour voitures, 4x4, pick-up et motos, avec un atelier pour l'entretien, le diagnostic et le dépannage. Tout au même endroit, avenue de l'Université à Dakar.</span><span class="sm">Pièces auto et moto, entretien, diagnostic et dépannage. Avenue de l'Université, Dakar.</span></p>
     <div class="searchbox">
       <label class="search-field" for="heroQ">
         <svg><use href="#i-search"/></svg>
@@ -448,7 +491,7 @@ body{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-
   <div class="sec-head">
     <p class="eyebrow">Catalogue</p>
     <h2>Trouvez votre pièce</h2>
-    <p>Tapez un nom, une référence constructeur ou même un mot approximatif : la recherche comprend les fautes de frappe et les synonymes. Les prix se demandent par WhatsApp, avec la photo de la pièce.</p>
+    <p><span class="lg">Tapez un nom, une référence constructeur ou même un mot approximatif : la recherche comprend les fautes de frappe et les synonymes. Les prix se demandent par WhatsApp, avec la photo de la pièce.</span><span class="sm">Un nom ou une référence suffit, même avec une faute. Prix sur WhatsApp.</span></p>
   </div>
   <div class="toolbar">
     <div class="tool-row">
@@ -457,6 +500,7 @@ body{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-
         <button class="clear" id="clearQ" type="button" aria-label="Effacer la recherche" hidden>×</button>
       </label>
       <select id="veh" aria-label="Type de véhicule"><option value="">Tous véhicules</option><option value="auto">Voiture, 4x4, pick-up</option><option value="moto">Moto</option></select>
+      <select id="catSel" class="cat-sel" aria-label="Catégorie"></select>
       <select id="sort" aria-label="Trier"><option value="rel">Tri : pertinence</option><option value="az">Tri : A → Z</option></select>
     </div>
     <div class="chips" id="chips" role="group" aria-label="Catégories"></div>
@@ -473,9 +517,9 @@ body{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-
     <p>La pièce et la pose au même endroit : pas d'aller-retour entre le magasin et le mécanicien.</p>
   </div>
   <div class="bays">
-    <div class="bay"><h3>Entretien</h3><ul><li>Vidange et remplacement des filtres</li><li>Plaquettes, disques, étriers, mâchoires</li><li>Embrayage, cardans, roulements</li><li>Amortisseurs, bras, rotules, direction</li><li>Distribution, joints, refroidissement</li><li>Climatisation</li></ul><button class="btn btn-accent" type="button" data-rdv="Entretien">Prendre rendez-vous</button></div>
-    <div class="bay"><h3>Diagnostic</h3><ul><li>Lecture et effacement des codes défaut</li><li>Voyant moteur, ABS, airbag</li><li>Injection, turbo, capteurs</li><li>Contrôle avant achat d'un véhicule</li><li>Devis de réparation avant intervention</li></ul><button class="btn btn-accent" type="button" data-rdv="Diagnostic">Demander un diagnostic</button></div>
-    <div class="bay"><h3>Dépannage</h3><ul><li>Panne de batterie ou de démarrage</li><li>Véhicule immobilisé sur la route</li><li>Prise en charge jusqu'à l'atelier</li><li>Réparation avec les pièces en stock</li></ul><p style="color:var(--band-muted)">En cas de panne, le plus rapide est d'appeler : <b class="sel" style="color:var(--band-ink)">+221 78 173 90 92</b></p><button class="btn btn-accent" type="button" data-rdv="Dépannage">Signaler une panne</button></div>
+    <div class="bay"><h3>Entretien</h3><p class="sum">Vidange, freins, embrayage, suspension, clim.</p><ul><li>Vidange et remplacement des filtres</li><li>Plaquettes, disques, étriers, mâchoires</li><li>Embrayage, cardans, roulements</li><li>Amortisseurs, bras, rotules, direction</li><li>Distribution, joints, refroidissement</li><li>Climatisation</li></ul><button class="btn btn-accent" type="button" data-rdv="Entretien"><span class="lg">Prendre rendez-vous</span><span class="sm">Rendez-vous</span></button></div>
+    <div class="bay"><h3>Diagnostic</h3><p class="sum">Codes défaut, voyants, injection, turbo.</p><ul><li>Lecture et effacement des codes défaut</li><li>Voyant moteur, ABS, airbag</li><li>Injection, turbo, capteurs</li><li>Contrôle avant achat d'un véhicule</li><li>Devis de réparation avant intervention</li></ul><button class="btn btn-accent" type="button" data-rdv="Diagnostic"><span class="lg">Demander un diagnostic</span><span class="sm">Réserver</span></button></div>
+    <div class="bay"><h3>Dépannage</h3><p class="sum">Panne sur la route, batterie, prise en charge.</p><ul><li>Panne de batterie ou de démarrage</li><li>Véhicule immobilisé sur la route</li><li>Prise en charge jusqu'à l'atelier</li><li>Réparation avec les pièces en stock</li></ul><p class="tip" style="color:var(--band-muted)">En cas de panne, le plus rapide est d'appeler : <b class="sel" style="color:var(--band-ink)">+221 78 173 90 92</b></p><button class="btn btn-accent" type="button" data-rdv="Dépannage"><span class="lg">Signaler une panne</span><span class="sm">Signaler</span></button></div>
   </div>
 </div></section>
 
@@ -507,8 +551,8 @@ body{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-
       <dl>
         <dt>Adresse</dt><dd>Avenue de l'Université<br>Dakar, Sénégal</dd>
         <dt>Direction</dt><dd>Babacar Niang, directeur général</dd>
-        <dt>WhatsApp</dt><dd><span class="sel">+221 78 173 90 92</span></dd>
-        <dt>Services</dt><dd>Pièces détachées, entretien, diagnostic, dépannage</dd>
+        <dt class="opt">WhatsApp</dt><dd class="opt"><span class="sel">+221 78 173 90 92</span></dd>
+        <dt class="opt">Services</dt><dd class="opt">Pièces détachées, entretien, diagnostic, dépannage</dd>
       </dl>
       <div style="display:flex;flex-wrap:wrap;gap:10px">
         <a class="btn btn-accent" href="tel:+221781739092">Appeler</a>
@@ -535,6 +579,13 @@ body{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-
 
 <a class="fab" target="_blank" rel="noopener" href="https://wa.me/221781739092?text=Bonjour%20BABS%2C%20je%20cherche%20une%20pi%C3%A8ce." aria-label="Écrire à BABS sur WhatsApp"><svg><use href="#i-wa"/></svg><span>WhatsApp</span></a>
 
+<nav class="tabbar" aria-label="Accès rapide">
+  <a href="#catalogue"><svg><use href="#i-parts"/></svg>Pièces</a>
+  <a href="#atelier"><svg><use href="#i-wrench"/></svg>Atelier</a>
+  <a href="tel:+221781739092"><svg><use href="#i-phone"/></svg>Appeler</a>
+  <button type="button" id="openQuote2"><svg><use href="#i-list"/></svg>Devis<i id="qCount2" hidden>0</i></button>
+  <a class="wa" target="_blank" rel="noopener" href="https://wa.me/221781739092?text=Bonjour%20BABS%2C%20je%20cherche%20une%20pi%C3%A8ce."><svg><use href="#i-wa"/></svg>WhatsApp</a>
+</nav>
 <dialog id="dProd" aria-labelledby="pName"><button class="dlg-x" type="button" data-close aria-label="Fermer">×</button><div class="prod" id="prodBody"></div></dialog>
 <dialog id="dQuote" aria-labelledby="qTitle"><button class="dlg-x" type="button" data-close aria-label="Fermer">×</button>
   <div class="qd"><h3 id="qTitle" style="font-size:1.7rem;text-transform:uppercase">Mon devis</h3><div id="qBody"></div></div>
@@ -728,6 +779,7 @@ function render(keep){var c=current();if(!keep)state.limit=PAGE;var all=c.list;c
   $('more').hidden=rest<=0;$('moreBtn').textContent='Afficher '+Math.min(rest,PAGE)+' pièces de plus ('+rest+' restantes)';
   chips.innerHTML='<button class="chip" type="button" data-cat="" aria-pressed="'+(!state.cat)+'">Tout<i>'+c.total+'</i></button>'+Object.keys(CATS).map(function(k){var n=c.counts[k]||0;return n||state.cat===k?'<button class="chip" type="button" data-cat="'+k+'" aria-pressed="'+(state.cat===k)+'">'+CATS[k]+'<i>'+n+'</i></button>':''}).join('');
   $('clearQ').hidden=!state.q;
+  $('catSel').innerHTML='<option value="">Toutes catégories ('+c.total+')</option>'+Object.keys(CATS).map(function(k){var n=c.counts[k]||0;return n||state.cat===k?'<option value="'+k+'"'+(state.cat===k?' selected':'')+'>'+CATS[k]+' ('+n+')</option>':''}).join('');
   var msg=all.length+' pièce'+(all.length>1?'s':'');
   if(state.q)msg+=' pour « '+esc(state.q)+' »';
   if(state.cat)msg+=' dans '+CATS[state.cat];
@@ -760,6 +812,7 @@ $('clearQ').addEventListener('click',function(){setQ('');qIn.focus()});
 $('veh').addEventListener('change',function(e){state.veh=e.target.value;state.cat='';render()});
 $('sort').addEventListener('change',function(e){state.sort=e.target.value;render()});
 $('moreBtn').addEventListener('click',function(){state.limit+=PAGE;render(true)});
+$('catSel').addEventListener('change',function(e){state.cat=e.target.value;render()});
 chips.addEventListener('click',function(e){var b=e.target.closest('[data-cat]');if(!b)return;state.cat=b.getAttribute('data-cat');render()});
 statusEl.addEventListener('click',function(e){if(e.target.id==='reset'){state.cat='';state.veh='';$('veh').value='';setQ('')}});
 ['Plaquettes','Amortisseur','Filtre à huile','Phare','Embrayage','Radiateur','Moto'].forEach(function(t){var b=document.createElement('button');b.type='button';b.textContent=t;b.addEventListener('click',function(){state.cat='';setQ(t);goCat()});$('quick').appendChild(b)});
@@ -781,7 +834,7 @@ grid.addEventListener('click',function(e){var o=e.target.closest('[data-open]');
 function saveQ(){try{localStorage.setItem('babs-devis',JSON.stringify(quote))}catch(e){}}
 function toast(t){var el=$('toast');el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){el.hidden=true},2200)}
 function quoteText(){return quote.map(function(n){var p=P.filter(function(x){return x.n===n})[0];return '- '+n+(p&&p.r.length?' (réf. '+p.r.join(', ')+')':'')}).join('\n')}
-function renderQuote(){ $('qCount').textContent=quote.length;
+function renderQuote(){ $('qCount').textContent=quote.length;$('qCount2').textContent=quote.length;$('qCount2').hidden=!quote.length;
   $('qBody').innerHTML=quote.length?'<ul>'+quote.map(function(n){var p=P.filter(function(x){return x.n===n})[0];return '<li>'+(p.i.length?'<img src="'+img(p.i[0])+'" alt="">':'<span class="ph"><svg><use href="#i-parts"/></svg></span>')+'<b>'+esc(n)+'</b><button type="button" data-rm="'+p.id+'" aria-label="Retirer '+esc(n)+'">×</button></li>'}).join('')+'</ul><p class="note" style="margin:14px 0">Le message liste ces pièces. Ajoutez votre véhicule dans WhatsApp avant d\'envoyer.</p><a class="btn btn-wa" style="width:100%" target="_blank" rel="noopener" href="'+WA+encodeURIComponent('Bonjour BABS, je souhaite un devis pour :\n'+quoteText()+'\nMon véhicule : ')+'"><svg><use href="#i-wa"/></svg>Envoyer la demande de devis</a>'
   :'<p style="color:var(--muted)">Votre devis est vide. Dans le catalogue, appuyez sur « + » pour ajouter une pièce, puis envoyez toute la liste en un seul message.</p><button class="btn btn-accent" type="button" data-close style="margin-top:14px">Parcourir le catalogue</button>';
   var fq=$('fQuote');fq.hidden=!quote.length;fq.textContent=quote.length?'Les '+quote.length+' pièce(s) de votre devis seront jointes au message.':'';updateForm()}
@@ -790,6 +843,7 @@ document.addEventListener('click',function(e){var a=e.target.closest('[data-add]
   var r=e.target.closest('[data-rm]');if(r){toggle(+r.getAttribute('data-rm'));return}
   var d=e.target.closest('[data-rdv]');if(d){$('fType').value=d.getAttribute('data-rdv');updateForm();$('contact').scrollIntoView();$('fCar').focus({preventScroll:true})}});
 $('openQuote').addEventListener('click',function(){renderQuote();dQuote.showModal()});
+$('openQuote2').addEventListener('click',function(){renderQuote();dQuote.showModal()});
 dQuote.addEventListener('click',function(e){if(e.target.closest('[data-close]')&&!quote.length)$('catalogue').scrollIntoView()});
 
 // Formulaire -> message WhatsApp
@@ -804,6 +858,7 @@ $('copyTel').addEventListener('click',function(){var b=this;function done(){b.te
   try{navigator.clipboard.writeText('+221781739092').then(done,sel)}catch(e){sel()}
   function sel(){var r=document.createRange();r.selectNodeContents($('telTxt'));var s=getSelection();s.removeAllRanges();s.addRange(r)}});
 
+if(innerWidth<640){heroQ.placeholder='Pièce ou référence…';qIn.placeholder='Pièce ou référence…';$('fCar').placeholder='Ex. : Toyota Hilux 2016';$('fMsg').placeholder='Pièce recherchée ou panne';$('fName').placeholder='Votre nom'}
 render();renderQuote();
 })();
 </script>
