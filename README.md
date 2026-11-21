@@ -1,6 +1,6 @@
-# BABS Services Automobiles
+# BN Motors
 
-Site vitrine et catalogue de pièces détachées de BABS, avenue de l'Université à Dakar : pièces auto et moto, entretien, diagnostic et dépannage.
+Site vitrine et catalogue de pièces détachées de BN Motors, avenue de l'Université à Dakar : pièces auto et moto, entretien, diagnostic et dépannage.
 
 - Recherche intelligente (fautes de frappe, synonymes, références constructeur) avec filtres par catégorie et type de véhicule
 - Demande de prix et devis par WhatsApp (+221 78 173 90 92)
